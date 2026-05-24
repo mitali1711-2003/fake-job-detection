@@ -2,6 +2,9 @@
 
 A machine learning project that detects fraudulent job postings using NLP and multiple ML classifiers.
 
+## Live Demo
+Try the app here: https://mitali1711-2003-fake-job-detection-app-kz7td1.streamlit.app
+
 ## Model Comparison
 | Model | Accuracy |
 |-------|----------|
@@ -42,8 +45,9 @@ fake-job-detection/
 │   └── evaluate.py     <- evaluates best model
 ├── models/             <- saved model files
 ├── reports/            <- all 5 charts saved here
+├── app.py              <- Streamlit web app
 └── requirements.txt
-## How to Run
+## How to Run Locally
 ```bash
 git clone https://github.com/mitali1711-2003/fake-job-detection.git
 cd fake-job-detection
@@ -53,7 +57,7 @@ pip install -r requirements.txt
 python3 src/preprocess.py
 python3 src/train.py
 python3 src/evaluate.py
-python3 notebooks/eda.py
+streamlit run app.py
 ```
 
 ## Tech Stack
@@ -63,3 +67,4 @@ python3 notebooks/eda.py
 - SMOTE for class imbalance
 - NLTK for text cleaning
 - Matplotlib, Seaborn, WordCloud
+- Streamlit for web app
