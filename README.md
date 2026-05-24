@@ -1,9 +1,15 @@
 # Fake Job Detection using Machine Learning
 
-A machine learning project that detects fraudulent job postings using NLP and multiple ML classifiers.
+An end-to-end ML project that detects fraudulent job postings using NLP, XGBoost, and SHAP explainability.
 
 ## Live Demo
-Try the app here: https://mitali1711-2003-fake-job-detection-app-kz7td1.streamlit.app
+Try the app: https://mitali1711-2003-fake-job-detection-app-kz7td1.streamlit.app
+
+## What makes this advanced
+- Compares 3 ML models and picks the best one automatically
+- SHAP explainability shows exactly WHICH WORDS made the model decide fake or real
+- Fully deployed live web app anyone can use
+- 5 EDA charts showing data insights
 
 ## Model Comparison
 | Model | Accuracy |
@@ -11,8 +17,6 @@ Try the app here: https://mitali1711-2003-fake-job-detection-app-kz7td1.streamli
 | Logistic Regression | 97.48% |
 | Random Forest | 97.99% |
 | **XGBoost** | **98.21%** |
-
-XGBoost performed best and was selected as the final model.
 
 ## Final Results (XGBoost)
 | Metric | Score |
@@ -27,25 +31,19 @@ XGBoost performed best and was selected as the final model.
 - Source: [Kaggle - Real or Fake Job Posting Prediction](https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction)
 - 17,880 job postings (17,014 real + 866 fake)
 
-## EDA Charts
-- Class distribution (real vs fake)
-- Top 10 industries with fake jobs
-- Word cloud for fake job descriptions
-- Word cloud for real job descriptions
-- Model accuracy comparison
-
 ## Project Structure
 fake-job-detection/
 ├── data/               <- dataset files
 ├── notebooks/
-│   └── eda.py          <- generates all EDA charts
+│   └── eda.py          <- 5 EDA charts
 ├── src/
 │   ├── preprocess.py   <- cleans text data
 │   ├── train.py        <- trains and compares 3 models
-│   └── evaluate.py     <- evaluates best model
+│   ├── evaluate.py     <- evaluates best model
+│   └── explain.py      <- SHAP explainability charts
 ├── models/             <- saved model files
-├── reports/            <- all 5 charts saved here
-├── app.py              <- Streamlit web app
+├── reports/            <- all charts including SHAP
+├── app.py              <- Streamlit web app with SHAP
 └── requirements.txt
 ## How to Run Locally
 ```bash
@@ -57,6 +55,7 @@ pip install -r requirements.txt
 python3 src/preprocess.py
 python3 src/train.py
 python3 src/evaluate.py
+python3 src/explain.py
 streamlit run app.py
 ```
 
@@ -65,6 +64,7 @@ streamlit run app.py
 - TF-IDF Vectorization
 - Random Forest, Logistic Regression, XGBoost
 - SMOTE for class imbalance
+- SHAP for model explainability
 - NLTK for text cleaning
 - Matplotlib, Seaborn, WordCloud
-- Streamlit for web app
+- Streamlit for web app deployment
