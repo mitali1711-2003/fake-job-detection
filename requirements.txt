@@ -10,3 +10,4 @@ wordcloud
 jupyter
 ipykernel
 joblib
+streamlit
